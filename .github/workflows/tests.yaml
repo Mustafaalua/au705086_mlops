@@ -8,11 +8,12 @@ on:
 
 jobs:
   build:
-    matrix:
-      os: ["ubuntu-latest", "windows-latest", "macos-latest"]
-      python-version: [3.10, 3.11, 3.12]
-    runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
+      matrix:
+        os: ["ubuntu-latest", "windows-latest", "macos-latest"]
+        python-version: [3.10, 3.11, 3.12]
+    runs-on: ${{ matrix.os }}
 
     steps:
     - name: Checkout
@@ -22,6 +23,7 @@ jobs:
       uses: astral-sh/setup-uv@v7
       with:
         python-version: ${{ matrix.python-version }}
+        enable-cache: true
 
     - name: Install dependencies
       run: |
