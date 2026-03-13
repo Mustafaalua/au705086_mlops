@@ -58,3 +58,7 @@ line-length = 120
 
 [tool.coverage.run]
 omit = ["tests/*"]
+
+[[tool.mypy.overrides]]
+module = ["sklearn.manifold.*","sklearn.decomposition.*"]
+follow_untyped_imports = true
