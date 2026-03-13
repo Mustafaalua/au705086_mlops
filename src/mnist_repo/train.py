@@ -1,10 +1,11 @@
 import matplotlib.pyplot as plt
 import torch
 import typer
-#from mnist_repo.model import MyAwesomeModel  # noqa: I001
+
+# from mnist_repo.model import MyAwesomeModel  # noqa: I001
 import mnist_repo.model
 import mnist_repo.data
-#from mnist_repo.data import corrupt_mnist  # noqa: I001
+# from mnist_repo.data import corrupt_mnist  # noqa: I001
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
 
@@ -14,7 +15,7 @@ def train(lr: float = 1e-3, batch_size: int = 32, epochs: int = 10) -> None:
     print("Training day and night")
     print(f"{lr=}, {batch_size=}, {epochs=}")
 
-    model = mnist_repo.model.MyAwesomeModel()#.to(DEVICE)
+    model = mnist_repo.model.MyAwesomeModel()  # .to(DEVICE)
     train_set, _ = mnist_repo.data.corrupt_mnist()
     train_dataloader = torch.utils.data.DataLoader(train_set, batch_size=batch_size)
 
