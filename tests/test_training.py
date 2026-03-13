@@ -1,7 +1,7 @@
 import pytest
 from mnist_repo.data import corrupt_mnist 
 from mnist_repo.train import train
-from mnist_repo.model import MyAwesomeModel 
+#from mnist_repo.model import MyAwesomeModel 
 
 
 def test_train(mocker):
